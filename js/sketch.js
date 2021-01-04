@@ -12,7 +12,6 @@ function setup() {
 
     beginColor = color(random(255), random(255), random(255));
     endColor = color(random(255), random(255), random(255));
-
 }
   
 function draw() {
@@ -29,8 +28,7 @@ function draw() {
             let rectColorG = floor(map(gridCelCounter, 0, (gridSize * gridSize), green(beginColor), green(endColor)));
             let rectColorB = floor(map(gridCelCounter, 0, (gridSize * gridSize), blue(beginColor), blue(endColor)));
 
-            let rectAngle = floor(map(gridCelCounter, 0, (gridSize * gridSize), 0, 45));
-            console.log(rectAngle)
+            let rectAngle = floor(map(gridCelCounter, 0, (gridSize * gridSize), 0, 15));
 
             let xRectCenter = (x * gridCelSize) + (gridCelSize / 2);
             let yRectCenter = (y * gridCelSize) + (gridCelSize / 2);
@@ -40,12 +38,12 @@ function draw() {
             translate(xRectCenter, yRectCenter);
             for(let i = 0; i < 3; i++) {
                 rotate(rectAngle + (i * 0.0001));
-                rectSize = rectSize - (i * 5);
+                rectSize = rectSize - (i * 6);
                 if (i == 2) {
                     fill(rectColorR, rectColorG, rectColorB);
                 }
                 else{
-                    fill(255);
+                    noFill();
                 }
                 rect(0, 0, rectSize, rectSize);
             }
@@ -56,6 +54,5 @@ function draw() {
     }
 
     noLoop();
-
 }
   
